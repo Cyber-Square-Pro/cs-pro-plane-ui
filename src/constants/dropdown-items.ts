@@ -4,6 +4,8 @@ export const ProfileDropDownItems:string[] = [
 ]
 
 export const OrgSizeDropDownItems:string[] = [
-    "Engineering/Development", 
-    "Freelance", "Student"
+    "1 - 10", 
+    "10 - 49", 
+    "50 - 249",
+    "250+"
 ]

@@ -6,7 +6,12 @@
   import DashboardHeader from "./_components/workspace-header";
   import CsProLogo from "@/components/cs-pro-logo";
 import ProjectsList from "./_components/projects";
-  
+import {Popover, PopoverTrigger, PopoverContent, Button} from "@nextui-org/react";  
+import { Settings } from "lucide-react";
+import { CircleUserRound } from 'lucide-react';
+import { LogOut } from 'lucide-react';
+
+
 
   export default function WorkSpaceLayout({
     children,
@@ -82,7 +87,14 @@ import ProjectsList from "./_components/projects";
                         style={{ height: "24px", width: "24px" }}
                       >
                         <div className="text-xs grid h-full w-full place-items-center uppercase rounded">
-                          E
+                        <Popover placement="right">
+                  <PopoverTrigger>
+                    <Button>S</Button>
+                  </PopoverTrigger>
+                  <PopoverContent>
+                    <PopoverContentComponent />
+                  </PopoverContent>
+                </Popover>
                         </div>
                       </div>
                     </button>
@@ -181,4 +193,26 @@ import ProjectsList from "./_components/projects";
   }
 
 
-    
+  const PopoverContentComponent = () => {
+    return (
+      <div className="px-1 py-2 border-2 border-black  bg-white ">
+            
+            <div className="flex items-center text-sm text-current">sreeuser@gmail.com</div>
+            <br />
+      
+            <div className="flex items-center"> <CircleUserRound />
+            <span className="ml-2 text-sm max-w-prose text-foreground">View profile</span> 
+           
+            </div>
+            <br />
+            <div className="flex items-center"><Settings/> 
+
+            <span className="ml-2 text-sm max-w-prose text-foreground">Settings </span>
+             </div>
+             <br />
+        <hr />
+        <div className="flex items-center"><LogOut />
+        <span className="ml-2 text-sm max-w-prose text-foreground">Sign Out</span> </div>
+        </div>
+    );
+  }; 

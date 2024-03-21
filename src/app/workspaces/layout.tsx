@@ -1,15 +1,10 @@
-  import Navbar from "@/components/navbar";
+  'use client'
   import SideBar from "@/components/sidebar/sidebar";
-  import WorkSpaceProjects from "./_components/projects";
   import { RouteList } from "@/constants/sidebar";
-  import DashboardOverView from "./_components/dashboard-over-view";
-  import DashboardHeader from "./_components/workspace-header";
   import CsProLogo from "@/components/cs-pro-logo";
-import ProjectsList from "./_components/projects";
-import {Popover, PopoverTrigger, PopoverContent, Button} from "@nextui-org/react";  
-import { Settings } from "lucide-react";
-import { CircleUserRound } from 'lucide-react';
-import { LogOut } from 'lucide-react';
+  import ProjectsList from "./_components/projects";
+  import {Popover, PopoverTrigger, Button} from "@nextui-org/react";  
+  import PopoverContentComponent from "./_components/profiledetails-popover";
 
 
 
@@ -76,29 +71,15 @@ import { LogOut } from 'lucide-react';
                   {/* left name style ends  here */}
                   {/* right name style starts here  */}
                   <div className="relative flex-shrink-0 rounded">
-                    <button
-                      className="grid place-items-center outline-none rounded bg-blue-500 text-white"
-                      type="button"
-                      aria-haspopup="menu"
-                      aria-expanded="false"
-                    >
-                      <div
-                        className=" grid place-items-center overflow-hidden rounded"
-                        style={{ height: "24px", width: "24px" }}
-                      >
-                        <div className="text-xs grid h-full w-full place-items-center uppercase rounded">
-                        <Popover placement="right">
+                  <Popover placement="right">
                   <PopoverTrigger>
-                    <Button>S</Button>
-                  </PopoverTrigger>
-                  <PopoverContent>
-                    <PopoverContentComponent />
-                  </PopoverContent>
-                </Popover>
-                        </div>
-                      </div>
-                    </button>
-                  </div>
+                  <button className=" grid place-items-center overflow-hidden rounded bg-blue-500 text-white outline-none"
+                        style={{ height: "24px", width: "24px"}}>S</button>
+                </PopoverTrigger>
+                {/* Using the imported component here */}
+                <PopoverContentComponent />
+              </Popover>  
+                </div>
                 </div>
                 {/* right name style ends  here  */}
 
@@ -193,26 +174,3 @@ import { LogOut } from 'lucide-react';
   }
 
 
-  const PopoverContentComponent = () => {
-    return (
-      <div className="px-1 py-2 border-2 border-black  bg-white ">
-            
-            <div className="flex items-center text-sm text-current">sreeuser@gmail.com</div>
-            <br />
-      
-            <div className="flex items-center"> <CircleUserRound />
-            <span className="ml-2 text-sm max-w-prose text-foreground">View profile</span> 
-           
-            </div>
-            <br />
-            <div className="flex items-center"><Settings/> 
-
-            <span className="ml-2 text-sm max-w-prose text-foreground">Settings </span>
-             </div>
-             <br />
-        <hr />
-        <div className="flex items-center"><LogOut />
-        <span className="ml-2 text-sm max-w-prose text-foreground">Sign Out</span> </div>
-        </div>
-    );
-  }; 

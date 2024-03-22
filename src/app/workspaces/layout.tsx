@@ -1,12 +1,12 @@
-  import Navbar from "@/components/navbar";
+  'use client'
   import SideBar from "@/components/sidebar/sidebar";
-  import WorkSpaceProjects from "./_components/projects";
   import { RouteList } from "@/constants/sidebar";
-  import DashboardOverView from "./_components/dashboard-over-view";
-  import DashboardHeader from "./_components/workspace-header";
   import CsProLogo from "@/components/cs-pro-logo";
-import ProjectsList from "./_components/projects";
-  
+  import ProjectsList from "./_components/projects";
+  import {Popover, PopoverTrigger, Button} from "@nextui-org/react";  
+  import PopoverContentComponent from "./_components/profiledetails-popover";
+
+
 
   export default function WorkSpaceLayout({
     children,
@@ -71,22 +71,15 @@ import ProjectsList from "./_components/projects";
                   {/* left name style ends  here */}
                   {/* right name style starts here  */}
                   <div className="relative flex-shrink-0 rounded">
-                    <button
-                      className="grid place-items-center outline-none rounded bg-blue-500 text-white"
-                      type="button"
-                      aria-haspopup="menu"
-                      aria-expanded="false"
-                    >
-                      <div
-                        className=" grid place-items-center overflow-hidden rounded"
-                        style={{ height: "24px", width: "24px" }}
-                      >
-                        <div className="text-xs grid h-full w-full place-items-center uppercase rounded">
-                          E
-                        </div>
-                      </div>
-                    </button>
-                  </div>
+                  <Popover placement="right">
+                  <PopoverTrigger>
+                  <button className=" grid place-items-center overflow-hidden rounded bg-blue-500 text-white outline-none"
+                        style={{ height: "24px", width: "24px"}}>S</button>
+                </PopoverTrigger>
+                {/* Using the imported component here */}
+                <PopoverContentComponent />
+              </Popover>  
+                </div>
                 </div>
                 {/* right name style ends  here  */}
 
@@ -181,4 +174,3 @@ import ProjectsList from "./_components/projects";
   }
 
 
-    

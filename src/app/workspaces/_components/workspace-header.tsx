@@ -1,10 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { LayoutGrid, LucideIcon } from "lucide-react";
+import { LayoutGrid, LucideIcon,Search  } from "lucide-react";
+
 import React, { FC } from "react";
 
 type Props = {
   icon: LucideIcon;
-  title: string
+  title: string;
 };
 const WorkSpaceHeader: FC<Props> = (props) => {
   const { icon: HeaderIcon, title } = props;
@@ -27,25 +28,30 @@ const WorkSpaceHeader: FC<Props> = (props) => {
       {/* display of current sidebar text and icons ends  */}
       {/* right-side of the header starts  */}
       <div className="flex items-center gap-3 px-2">
+        <div className="relative w-64">
+          <input
+            type="text"
+            placeholder="Search..."
+            className="pl-10 w-full border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+          />
+          <Search
+            className="absolute top-1/2 left-3 transform -translate-y-1/2 text-gray-500"
+            size={20}
+          />
+        </div>
         <a
           href="#"
           className="flex flex-shrink-0  flex-row items-center gap-1.5 rounded bg-slate-200 px-3 hover: hover:bg-zinc-50   py-1.5"
         >
           <span className="hidden text-xs font-medium sm:hidden md:block">
-           { title == 'Projects' && (
-            <Button size="sm">
-              +Add Project
-            </Button>
-           )}
+            {title == "Projects" && <Button size="sm">+Add Project</Button>}
           </span>
         </a>
         <a
           href=""
           className="flex flex-shrink-0 flex-row items-center gap-1.5  bg-slate-200 hover:bg-zinc-50   rounded px-3 py-1.5"
         >
-          <span className="hidden text-xs font-medium sm:hidden md:block">
-           
-          </span>
+          <span className="hidden text-xs font-medium sm:hidden md:block"></span>
         </a>
       </div>
       {/* right-side of the header starts  */}
